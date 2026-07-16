@@ -3,6 +3,11 @@ import type { HomeMode } from '../data/content'
 
 const modeIcons = { day: Sun, sunset: Sunset, night: Moon } as const
 const modeLabels: Record<HomeMode, string> = { day: 'DAY', sunset: 'SUNSET', night: 'NIGHT' }
+const modeDescriptions: Record<HomeMode, string> = {
+  day: 'Natural daylight',
+  sunset: 'A darker blue-hour sky',
+  night: 'A dark navy night sky',
+}
 
 type ModeRailProps = {
   mode: HomeMode
@@ -22,7 +27,7 @@ export function ModeRail({ mode, onChange }: ModeRailProps) {
         return <button className={`mode-button ${isActive ? 'is-active' : ''}`} type="button" aria-pressed={isActive} title={`Switch to ${modeLabels[item].toLowerCase()}`} onClick={() => onChange(item)} key={item}>
           <span className="mode-icon"><Icon size={20} strokeWidth={1.5} /></span>
           <span className="mode-button-label">{modeLabels[item]}</span>
-          <span className="mode-tooltip" role="tooltip">{item === 'day' ? 'Natural daylight' : item === 'sunset' ? 'Warm evening light' : 'Low-light atmosphere'}</span>
+          <span className="mode-tooltip" role="tooltip">{modeDescriptions[item]}</span>
         </button>
       })}
     </div>

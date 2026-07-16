@@ -9,8 +9,6 @@ type ProjectsProps = {
   onFacadeMaterialChange: (material: FacadeMaterial) => void
 }
 
-const materialFilters: Record<FacadeMaterial, string> = Object.fromEntries(facadeMaterials.map((material) => [material.id, material.filter])) as Record<FacadeMaterial, string>
-
 export function Projects({ facadeMaterial, onFacadeMaterialChange }: ProjectsProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const selectedProject = selectedIndex === null ? null : projects[selectedIndex]
@@ -19,16 +17,16 @@ export function Projects({ facadeMaterial, onFacadeMaterialChange }: ProjectsPro
   const previousProject = useCallback(() => setSelectedIndex((index) => index === null ? null : (index - 1 + projects.length) % projects.length), [])
   const nextProject = useCallback(() => setSelectedIndex((index) => index === null ? null : (index + 1) % projects.length), [])
   const featuredProject = projects[0]
+  const featuredMaterial = facadeMaterials.find((material) => material.id === facadeMaterial) ?? facadeMaterials[0]
 
   return <section className="projects-section section-shell" id="projects">
     <div className="section-intro reveal"><div><p className="section-label">SELECTED PROJECTS</p><h2>HOMES WITH<br /><em>A LONG VIEW.</em></h2></div><p className="section-copy">A small portfolio of places shaped by site, light and the way they will be lived in.</p></div>
     <article className="featured-project reveal">
       <button type="button" className={`featured-project-media material-${facadeMaterial}`} onClick={() => openProject(0)} aria-label={`Open case study for ${featuredProject.title}`}>
-        <ResponsiveImage src={featuredProject.image} alt="The Ridge House, Portland" fetchPriority="high" decoding="async" sizes="(max-width: 820px) 100vw, 65vw" style={{ filter: materialFilters[facadeMaterial] }} />
+        <ResponsiveImage src={featuredMaterial.image} alt={`${featuredProject.title} with ${featuredMaterial.label.toLowerCase()} facade`} fetchPriority="high" decoding="async" sizes="(max-width: 820px) 100vw, 65vw" />
         <span className="media-caption">THE RIDGE HOUSE <span>OPEN CASE STUDY <ArrowUpRight size={18} /></span></span>
       </button>
       <div className="featured-project-info">
-        <div className="project-index">01 <span>/ 03</span></div>
         <h3>{featuredProject.title}</h3>
         <p className="project-summary">A custom residence from the current Northline portfolio, presented as an editorial case study with the working drawing and built home kept in the same frame.</p>
         <dl className="project-facts"><div><dt>LOCATION</dt><dd>{featuredProject.city}</dd></div><div><dt>YEAR</dt><dd>{featuredProject.year}</dd></div><div><dt>TYPE</dt><dd>{featuredProject.type}</dd></div><div><dt>SERVICE</dt><dd>{featuredProject.service}</dd></div></dl>
@@ -36,7 +34,7 @@ export function Projects({ facadeMaterial, onFacadeMaterialChange }: ProjectsPro
         <button type="button" className="text-link text-link-button" onClick={() => openProject(0)}>VIEW FULL CASE STUDY <ArrowUpRight size={18} /></button>
       </div>
     </article>
-    <div className="project-rail" aria-label="More projects">{projects.slice(1).map((project, index) => { const projectIndex = index + 1; return <article className="project-rail-row reveal" key={project.title}><button type="button" className="rail-image" onClick={() => openProject(projectIndex)} aria-label={`Open case study for ${project.title}`}><ResponsiveImage src={project.image} alt={`${project.title}, ${project.city}`} loading="lazy" decoding="async" sizes="(max-width: 600px) 100vw, 34vw" /></button><div className="rail-copy"><span className="project-index">0{projectIndex + 1} <span>/ 03</span></span><h3>{project.title}</h3><p>{project.city} <span>/</span> {project.year} <span>/</span> {project.type}</p></div><button type="button" className="text-link text-link-button" onClick={() => openProject(projectIndex)}>VIEW CASE STUDY <ArrowUpRight size={18} /></button></article> })}</div>
-    {selectedProject && <ProjectCaseStudy project={selectedProject} projectIndex={selectedIndex ?? 0} projectCount={projects.length} facadeMaterial={facadeMaterial} onClose={closeProject} onPrevious={previousProject} onNext={nextProject} />}
+    <div className="project-rail" aria-label="More projects">{projects.slice(1).map((project, index) => { const projectIndex = index + 1; return <article className="project-rail-row reveal" key={project.title}><button type="button" className="rail-image" onClick={() => openProject(projectIndex)} aria-label={`Open case study for ${project.title}`}><ResponsiveImage src={project.image} alt={`${project.title}, ${project.city}`} loading="lazy" decoding="async" sizes="(max-width: 600px) 100vw, 34vw" /></button><div className="rail-copy"><h3>{project.title}</h3><p>{project.city} <span>/</span> {project.year} <span>/</span> {project.type}</p></div><button type="button" className="text-link text-link-button" onClick={() => openProject(projectIndex)}>VIEW CASE STUDY <ArrowUpRight size={18} /></button></article> })}</div>
+    {selectedProject && <ProjectCaseStudy project={selectedProject} facadeMaterial={facadeMaterial} facadeImage={selectedIndex === 0 ? featuredMaterial.image : selectedProject.image} onClose={closeProject} onPrevious={previousProject} onNext={nextProject} />}
   </section>
 }

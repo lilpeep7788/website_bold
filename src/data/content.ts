@@ -8,15 +8,15 @@ export const navItems = [
 
 export const modes: Array<{ id: HomeMode; label: string; description: string }> = [
   { id: 'day', label: 'DAY', description: 'Natural daylight' },
-  { id: 'sunset', label: 'SUNSET', description: 'Warm evening light' },
-  { id: 'night', label: 'NIGHT', description: 'Low-light atmosphere' },
+  { id: 'sunset', label: 'SUNSET', description: 'A darker blue-hour sky' },
+  { id: 'night', label: 'NIGHT', description: 'A dark navy night sky' },
 ]
 
 export const facadeMaterials = [
-  { id: 'concrete', label: 'CONCRETE', description: 'Quiet mineral finish', filter: 'brightness(1.04) saturate(.86)' },
-  { id: 'cedar', label: 'CEDAR', description: 'Warm timber rhythm', filter: 'brightness(.98) saturate(1.1) sepia(.08)' },
-  { id: 'stone', label: 'STONE', description: 'Textured local weight', filter: 'brightness(.96) saturate(.76) contrast(1.06)' },
-  { id: 'metal', label: 'METAL', description: 'Dark precise envelope', filter: 'brightness(.86) saturate(.55) contrast(1.1)' },
+  { id: 'concrete', label: 'CONCRETE', description: 'Quiet mineral finish', image: '/images/project-ridge.png' },
+  { id: 'cedar', label: 'CEDAR', description: 'Warm timber rhythm', image: '/images/material-cedar.png' },
+  { id: 'stone', label: 'STONE', description: 'Textured local weight', image: '/images/material-stone.png' },
+  { id: 'metal', label: 'METAL', description: 'Dark precise envelope', image: '/images/material-metal.png' },
 ] as const
 
 export type FacadeMaterial = (typeof facadeMaterials)[number]['id']
