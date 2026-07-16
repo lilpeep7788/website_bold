@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
-import { ArrowDownRight, Play } from 'lucide-react'
+import { ArrowDownRight } from 'lucide-react'
 import gsap from 'gsap'
 import { useMagnetic } from '../hooks/useMagnetic'
 
@@ -21,7 +21,6 @@ export function Hero() {
   }, [])
   return <section className="hero" id="home" ref={sectionRef}>
     <div className="hero-media" /><div className="hero-shade" />
-    <div className="hero-content"><h1 className="hero-title" aria-label="Built for life. Designed for you."><span className="hero-line"><em>BUILT</em> FOR LIFE.</span><span className="hero-line">DESIGNED FOR <em>YOU.</em></span></h1><div className="hero-actions"><a ref={workRef} href="#projects" className="button button-outline">EXPLORE OUR WORK <ArrowDownRight size={18} /></a><a href="#process" className="play-action"><span className="play-icon"><Play size={14} fill="currentColor" /></span>SEE OUR PROCESS</a></div></div>
-    <a href="#blueprint" className="hero-scroll">SCROLL TO DISCOVER <ArrowDownRight size={17} /></a>
+    <div className="hero-content"><h1 className="hero-title" aria-label="Built for life. Designed for you."><span className="hero-line"><em>BUILT</em> FOR LIFE.</span><span className="hero-line">DESIGNED FOR <em>YOU.</em></span></h1><div className="hero-actions"><a ref={workRef} href="#projects" className="button button-outline">EXPLORE OUR WORK <ArrowDownRight size={18} /></a></div></div>
   </section>
 }
