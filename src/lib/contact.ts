@@ -1,18 +1,30 @@
-export type ContactPayload = { name: string; phone: string; email: string; message: string }
+export type ContactPayload = {
+  name: string
+  phone: string
+  email: string
+  message: string
+  service: string
+  facadeMaterial: string
+  homeMode: string
+  consent: boolean
+}
 
-export async function sendContactRequest(payload: ContactPayload) {
+export async function sendContactRequest(payload: ContactPayload, attachment?: File) {
   const endpoint = import.meta.env.VITE_CONTACT_ENDPOINT
-  if (!endpoint) throw new Error('Set VITE_CONTACT_ENDPOINT to connect this form to a contact API.')
-  const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-  if (!response.ok) throw new Error('The request could not be sent. Please try again.')
+  if (!endpoint) throw new Error('Contact endpoint is not configured. Add VITE_CONTACT_ENDPOINT to enable sending.')
+  const body = new FormData()
+  Object.entries(payload).forEach(([key, value]) => body.append(key, String(value)))
+  if (attachment) body.append('file', attachment, attachment.name)
+  const response = await fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json' }, body })
+  if (!response.ok) throw new Error(`The server returned ${response.status}. Please try again.`)
+  return response
 }
 
 export function formatPhone(value: string) {
-  const digits = value.replace(/\D/g, '').slice(0, 11)
+  const digits = value.replace(/\D/g, '').slice(0, 15)
   if (!digits) return ''
-  const normalized = digits.startsWith('8') ? `7${digits.slice(1)}` : digits
-  const match = normalized.match(/^(\d)(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})$/)
-  if (!match) return `+${normalized}`
-  const [, country, area, prefix, firstPair, secondPair] = match
-  return `+${country}${area ? ` (${area}` : ''}${area.length === 3 ? ')' : ''}${prefix ? ` ${prefix}` : ''}${firstPair ? `-${firstPair}` : ''}${secondPair ? `-${secondPair}` : ''}`
+  if (digits.length <= 3) return `+${digits}`
+  if (digits.length <= 6) return `+${digits.slice(0, 3)} ${digits.slice(3)}`
+  if (digits.length <= 9) return `+${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6)}`
+  return `+${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6, 9)} ${digits.slice(9)}`
 }
