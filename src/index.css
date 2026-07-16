@@ -43,7 +43,7 @@ button { color:inherit; }
 .hero-media { z-index:-3; background:url('/images/hero-residence.png') center/cover no-repeat; will-change:transform; }
 .hero-shade { z-index:-2; background:linear-gradient(90deg,rgba(5,6,5,.93) 0%,rgba(5,6,5,.72) 31%,rgba(5,6,5,.2) 61%,rgba(5,6,5,.03) 100%); }
 .hero-content { display:flex; min-height:100svh; padding:clamp(160px,22vh,252px) clamp(24px,5.1vw,98px) 118px; flex-direction:column; justify-content:center; }
-.hero-title { max-width:min(780px,65vw); margin:0; overflow:hidden; font-family:var(--display); font-size:clamp(65px,8.6vw,167px); font-weight:400; letter-spacing:.015em; line-height:.9; }
+.hero-title { max-width:100%; margin:0; overflow:hidden; font-family:var(--display); font-size:clamp(65px,8.6vw,167px); font-weight:400; letter-spacing:.015em; line-height:.9; }
 .hero-line { display:block; overflow:hidden; white-space:nowrap; }
 .hero-title em,.projects-heading em,.about-statement em,.contact-form-wrap em { color:var(--gold); font-style:normal; }
 .hero-actions { display:flex; align-items:center; gap:31px; margin-top:45px; }
