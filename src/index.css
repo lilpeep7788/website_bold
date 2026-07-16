@@ -114,14 +114,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .material-swatch--stone { background: radial-gradient(circle at 30% 30%, #c6c0ae 0 8%, transparent 9%), linear-gradient(135deg, #777268, #c1b9a5); }
 .material-swatch--metal { background: linear-gradient(135deg, #242a2b, #8a8d87, #171a1a); }
 .featured-project-info > .text-link { align-self: flex-start; margin-top: 32px; }
-.project-rail { margin-top: 82px; border-top: 1px solid var(--line-strong); }
-.project-rail-row { display: grid; grid-template-columns: minmax(260px, .75fr) minmax(260px, 1fr) auto; min-height: 230px; align-items: center; gap: clamp(24px, 5vw, 82px); border-bottom: 1px solid var(--line); }
-.rail-image { width: 100%; height: 176px; overflow: hidden; padding: 0; border: 0; background: var(--graphite); cursor: pointer; }
-.rail-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
-.rail-image:hover img, .rail-image:focus-visible img { transform: scale(1.04); }
-.rail-copy h3 { margin: 13px 0 9px; font-family: var(--display); font-size: clamp(35px, 4vw, 62px); font-weight: 400; line-height: .92; }
-.rail-copy p { margin: 0; color: var(--muted); font-size: 16px; }
-.rail-copy p span { color: var(--gold); padding-inline: 5px; }
 
 .case-study-backdrop { position: fixed; z-index: 100; inset: 0; overflow: auto; padding: clamp(14px, 3vw, 46px); background: rgba(3, 4, 3, .86); backdrop-filter: blur(9px); }
 .case-study { width: min(100%, 1460px); min-height: calc(100svh - 28px); margin: auto; border: 1px solid var(--line-strong); background: var(--graphite); box-shadow: 0 24px 80px rgba(0, 0, 0, .48); }
@@ -154,9 +146,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .case-study-details dl { display: grid; gap: 22px; margin: 32px 0; }
 .case-study-note { margin: auto 0 24px; color: var(--muted); font-size: 14px; line-height: 1.55; }
 .case-study-details .button { width: 100%; }
-.case-study-footer { display: flex; min-height: 68px; align-items: center; justify-content: space-between; gap: 18px; padding: 0 clamp(22px, 3vw, 48px); border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; letter-spacing: .12em; }
-.case-nav { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: transparent; color: var(--ivory); font-size: 12px; font-weight: 700; letter-spacing: .12em; cursor: pointer; }
-.case-nav:hover { color: var(--gold); }
 
 .blueprint-section { display: grid; min-height: 720px; grid-template-columns: minmax(260px, .72fr) minmax(0, 1.65fr); gap: clamp(38px, 6vw, 98px); align-items: center; padding-top: clamp(100px, 12vw, 190px); padding-bottom: clamp(100px, 12vw, 190px); background: var(--graphite); }
 .blueprint-intro { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; }
@@ -227,7 +216,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .hero-title { font-size: clamp(62px, 8vw, 112px); }
   .mode-panel { right: 22px; }
   .featured-project-info { padding: 36px; }
-  .project-rail-row { gap: 32px; }
 }
 
 @media (max-width: 900px) {
@@ -260,8 +248,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .featured-project-media { min-height: 58svh; }
   .featured-project-info { padding: 38px 30px 44px; }
   .featured-project-info h3 { font-size: clamp(52px, 9vw, 82px); }
-  .project-rail-row { grid-template-columns: minmax(190px, .75fr) 1fr; gap: 24px; padding-block: 20px; }
-  .project-rail-row > .text-link { grid-column: 2; }
   .blueprint-section, .trust-section, .contact-grid { display: block; }
   .blueprint-intro { margin-bottom: 42px; }
   .trust-detail { margin-top: 70px; }
@@ -286,7 +272,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .featured-project-media { min-height: 60svh; }.media-caption { right: 16px; bottom: 17px; left: 16px; font-size: 10px; }.media-caption span { font-size: 10px; }
   .featured-project-info { padding: 30px 19px 38px; }.featured-project-info h3 { font-size: clamp(48px, 13vw, 70px); }.project-summary, .project-facts dd { font-size: 16px; }
   .project-facts { gap: 18px 12px; }.project-facts dt { font-size: 10px; }.material-options { gap: 5px; }.material-options button { min-height: 58px; }.material-options button > span:last-child { font-size: 9px; }
-  .project-rail { margin-top: 56px; }.project-rail-row { display: block; min-height: 0; padding-block: 24px; }.rail-image { height: 230px; }.rail-copy { padding-block: 22px; }.rail-copy h3 { font-size: 46px; }.project-rail-row > .text-link { display: inline-flex; }
   .blueprint-section { padding-block: 94px; }.blueprint-intro h2 { font-size: 54px; }.comparison-frame { height: 75vw; min-height: 300px; }.comparison-label { bottom: 16px; font-size: 10px; }.comparison-handle { width: 48px; height: 48px; }
   .configurator-grid { display: block; margin-top: 38px; }.service-option { min-height: 104px; grid-template-columns: 1fr auto; gap: 12px; padding: 18px 12px; }.service-option:hover, .service-option:focus-visible, .service-option.is-active { padding-left: 19px; }.service-option strong { font-size: clamp(28px, 8.8vw, 43px); }.service-option small { font-size: 15px; }.brief-preview { border-top: 1px solid var(--line); border-left: 0; padding: 30px 19px 34px; }.brief-preview h3 { font-size: 52px; }
   .trust-section { padding-block: 98px; }.trust-lead h2 { font-size: 56px; }.trust-detail { margin-top: 58px; }.trust-detail-heading { display: block; }.trust-detail-heading > span:last-child { display: block; margin-top: 8px; font-size: 10px; }.trust-detail summary { min-height: 66px; font-size: 15px; }
@@ -298,11 +283,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 430px) {
   .hero { min-height: 735px; }.hero-content { min-height: 735px; padding-bottom: 140px; }.hero-title { font-size: clamp(46px, 14vw, 64px); }.hero-description { font-size: 16px; line-height: 1.55; }.button { min-height: 56px; padding-inline: 19px; }
   .mode-panel { grid-template-columns: 98px 1fr; }.mode-panel-heading { font-size: 9px; }.mode-button { min-width: 52px; }.mode-icon { width: 34px; height: 34px; }.mode-button-label { font-size: 9px; }
-  .featured-project-media { min-height: 54svh; }.featured-project-info h3, .rail-copy h3 { font-size: 45px; }.project-facts { grid-template-columns: 1fr 1fr; }.material-options button > span:last-child { font-size: 8px; letter-spacing: .04em; }.section-intro h2 { font-size: 51px; }.trust-lead h2 { font-size: 51px; }.contact-intro h2 { font-size: 53px; }
+  .featured-project-media { min-height: 54svh; }.featured-project-info h3 { font-size: 45px; }.project-facts { grid-template-columns: 1fr 1fr; }.material-options button > span:last-child { font-size: 8px; letter-spacing: .04em; }.section-intro h2 { font-size: 51px; }.trust-lead h2 { font-size: 51px; }.contact-intro h2 { font-size: 53px; }
 }
 
 @media (max-width: 390px) {
-  .hero-title { font-size: 45px; }.hero-description { max-width: 300px; }.mode-panel { grid-template-columns: 88px 1fr; padding-inline: 6px; }.mode-button { min-width: 48px; }.mode-button-label { letter-spacing: .08em; }.section-intro h2, .trust-lead h2 { font-size: 48px; }.featured-project-info h3, .rail-copy h3 { font-size: 42px; }.material-options { grid-template-columns: repeat(2, 1fr); }.material-options button { min-height: 48px; grid-template-columns: 24px 1fr; place-items: center start; padding-inline: 8px; }.material-swatch { width: 22px; height: 22px; }.material-options button > span:last-child { font-size: 9px; }.case-study-header h2 { font-size: 42px; }
+  .hero-title { font-size: 45px; }.hero-description { max-width: 300px; }.mode-panel { grid-template-columns: 88px 1fr; padding-inline: 6px; }.mode-button { min-width: 48px; }.mode-button-label { letter-spacing: .08em; }.section-intro h2, .trust-lead h2 { font-size: 48px; }.featured-project-info h3 { font-size: 42px; }.material-options { grid-template-columns: repeat(2, 1fr); }.material-options button { min-height: 48px; grid-template-columns: 24px 1fr; place-items: center start; padding-inline: 8px; }.material-swatch { width: 22px; height: 22px; }.material-options button > span:last-child { font-size: 9px; }.case-study-header h2 { font-size: 42px; }
 }
 
 @media (max-width: 360px) {

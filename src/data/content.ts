@@ -13,7 +13,7 @@ export const modes: Array<{ id: HomeMode; label: string; description: string }> 
 ]
 
 export const facadeMaterials = [
-  { id: 'concrete', label: 'CONCRETE', description: 'Quiet mineral finish', image: '/images/project-ridge.png' },
+  { id: 'concrete', label: 'CONCRETE', description: 'Quiet mineral finish', image: '/images/material-concrete.png' },
   { id: 'cedar', label: 'CEDAR', description: 'Warm timber rhythm', image: '/images/material-cedar.png' },
   { id: 'stone', label: 'STONE', description: 'Textured local weight', image: '/images/material-stone.png' },
   { id: 'metal', label: 'METAL', description: 'Dark precise envelope', image: '/images/material-metal.png' },
@@ -47,38 +47,16 @@ export const projects: Project[] = [
     year: '2025',
     type: 'CUSTOM RESIDENCE',
     image: '/images/project-ridge.png',
-    gallery: ['/images/project-ridge.png', '/images/hero-residence.png', '/images/courtyard-residence.png'],
+    gallery: ['/images/project-ridge.png', '/images/hero-residence.png'],
     plan: '/images/blueprint-residence.png',
     service: 'ARCHITECTURE & CONSTRUCTION',
     layout: 'wide',
-  },
-  {
-    title: 'TIDELINE RETREAT',
-    city: 'CANNON BEACH, OR',
-    year: '2024',
-    type: 'NEW BUILD',
-    image: '/images/coast-residence.png',
-    gallery: ['/images/coast-residence.png', '/images/project-ridge.png', '/images/blueprint-reference.png'],
-    plan: '/images/blueprint-reference.png',
-    service: 'ARCHITECTURAL DESIGN',
-    layout: 'landscape',
-  },
-  {
-    title: 'COURTYARD HOUSE',
-    city: 'SEATTLE, WA',
-    year: '2024',
-    type: 'RENOVATION',
-    image: '/images/project-lake.png',
-    gallery: ['/images/project-lake.png', '/images/courtyard-residence.png', '/images/service-renovation.png'],
-    plan: '/images/blueprint-reference.png',
-    service: 'RENOVATION',
-    layout: 'portrait',
   },
 ]
 
 export const trustRows = [
   { title: 'TEAM', text: 'Architects, builders and problem solvers working from one brief.' },
   { title: 'PROCESS', text: 'Brief, design, build and handover — a clear sequence with fewer handoffs.' },
-  { title: 'GEOGRAPHY', text: 'The current portfolio references Portland, Seattle and Cannon Beach.' },
+  { title: 'GEOGRAPHY', text: 'The current portfolio is focused on Portland, Oregon.' },
   { title: 'PROJECT TERMS', text: 'Warranty and commercial terms are project-specific and should be confirmed in the proposal.' },
 ] as const

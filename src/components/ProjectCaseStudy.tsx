@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowRight, ChevronLeft, ChevronRight, Expand, Minus, Plus, X } from 'lucide-react'
+import { ArrowRight, Expand, Minus, Plus, X } from 'lucide-react'
 import type { FacadeMaterial, Project } from '../data/content'
 import { ResponsiveImage } from './ResponsiveImage'
 
@@ -8,13 +8,11 @@ type ProjectCaseStudyProps = {
   facadeMaterial: FacadeMaterial
   facadeImage: string
   onClose: () => void
-  onPrevious: () => void
-  onNext: () => void
 }
 
 type View = 'photos' | 'plan'
 
-export function ProjectCaseStudy({ project, facadeMaterial, facadeImage, onClose, onPrevious, onNext }: ProjectCaseStudyProps) {
+export function ProjectCaseStudy({ project, facadeMaterial, facadeImage, onClose }: ProjectCaseStudyProps) {
   const [view, setView] = useState<View>('photos')
   const [galleryIndex, setGalleryIndex] = useState(0)
   const [planScale, setPlanScale] = useState(1)
@@ -29,13 +27,11 @@ export function ProjectCaseStudy({ project, facadeMaterial, facadeImage, onClose
     const previousOverflow = document.body.style.overflow
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose()
-      if (event.key === 'ArrowLeft') onPrevious()
-      if (event.key === 'ArrowRight') onNext()
     }
     document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', onKeyDown)
     return () => { document.body.style.overflow = previousOverflow; window.removeEventListener('keydown', onKeyDown) }
-  }, [onClose, onNext, onPrevious])
+  }, [onClose])
 
   const caseStudyImages = [facadeImage, ...project.gallery.filter((image) => image !== facadeImage)]
   const activeImage = caseStudyImages[galleryIndex]
@@ -67,7 +63,6 @@ export function ProjectCaseStudy({ project, facadeMaterial, facadeImage, onClose
           <a className="button button-gold" href="#contact" onClick={onClose}>INQUIRE ABOUT THIS PROJECT <ArrowRight size={17} /></a>
         </aside>
       </div>
-      <footer className="case-study-footer"><button type="button" className="case-nav" onClick={onPrevious}><ChevronLeft size={18} /> PREVIOUS PROJECT</button><span>USE LEFT / RIGHT ARROW KEYS</span><button type="button" className="case-nav" onClick={onNext}>NEXT PROJECT <ChevronRight size={18} /></button></footer>
     </section>
   </div>
 }
