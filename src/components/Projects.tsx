@@ -18,7 +18,7 @@ export function Projects({ facadeMaterial, onFacadeMaterialChange }: ProjectsPro
   const featuredMaterial = facadeMaterials.find((material) => material.id === facadeMaterial) ?? facadeMaterials[0]
 
   return <section className="projects-section section-shell" id="projects">
-    <div className="section-intro reveal"><div><p className="section-label">SELECTED PROJECT</p><h2>A HOME WITH<br /><em>A LONG VIEW.</em></h2></div><p className="section-copy">A custom residence shaped by site, light and the way it will be lived in.</p></div>
+    <div className="section-intro reveal"><div><p className="section-label">SELECTED PROJECT</p><h2>THE <em>RIDGE HOUSE.</em></h2></div><p className="section-copy">A custom residence shaped by site, light and the way it will be lived in.</p></div>
     <article className="featured-project reveal">
       <button type="button" className={`featured-project-media material-${facadeMaterial}`} onClick={() => openProject(0)} aria-label={`Open case study for ${featuredProject.title}`}>
         <ResponsiveImage src={featuredMaterial.image} alt={`${featuredProject.title} with ${featuredMaterial.label.toLowerCase()} facade`} fetchPriority="high" decoding="async" sizes="(max-width: 820px) 100vw, 65vw" />

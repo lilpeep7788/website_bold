@@ -86,6 +86,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .projects-section { padding-top: clamp(108px, 12vw, 190px); padding-bottom: clamp(112px, 13vw, 210px); background: var(--ink); }
 .section-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 50px; margin-bottom: 56px; }
 .section-intro h2 { margin: 22px 0 0; font-family: var(--display); font-size: clamp(58px, 7.5vw, 122px); font-weight: 400; letter-spacing: .012em; line-height: .88; }
+.projects-section .section-intro h2 { max-width: 620px; font-size: clamp(44px, 4.8vw, 76px); line-height: .95; }
 .section-intro .section-copy { margin-bottom: 8px; }
 .featured-project { display: grid; min-height: min(800px, calc(100svh - 125px)); grid-template-columns: minmax(0, 1.55fr) minmax(340px, .74fr); border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); background: var(--graphite); }
 .featured-project-media { position: relative; min-height: 610px; overflow: hidden; padding: 0; border: 0; background: var(--graphite); cursor: pointer; text-align: left; }
